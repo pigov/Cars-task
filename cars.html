@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Cars Task</title>
+        <link rel="stylesheet" type="text/css" href="cars.css" />
+    </head>
+    <body>
+    <div class="wrap">
+        <div class="header">Cars Task</div>
+        <div>Dbclick to edit item</div>
+        <section id="container">
+            <div class="addNew">
+                <input type="text" placeholder="Make?" class="input input-make" >
+                <input type="text" placeholder="Model?" class="input input-model" >
+                <input type="text" placeholder="Year?" class="input input-year" >
+                <div>In stock?</div>
+                <input type="checkbox" id="input-stock" >
+                <div class="submit">Add</div>
+                <div class="showOnlyAvailable">Filter cars in stock</div>
+                <input type="checkbox" id="filter-stock" >
+            </div>
+            <ul id="list"></ul>
+        </section>
+
+        <script type="text/template" id="car-template">
+            <div class="view">
+                <div class="make">
+                    <div id="Make" class="editable"><%- make %></div>
+                    <input type="text" placeholder="Make?" class="edit input-make" >
+                </div>
+                <div class="model">
+                    <div id="Model" class="editable"><%- model %></div>
+                    <input type="text" placeholder="Model?" class="edit input-model" >
+                </div>
+                <div class="year">
+                    <div id="Year" class="editable"><%- year %></div>
+                    <input type="text" placeholder="Year?" class="edit input-year" >
+                </div>
+                <input class="toggle" type="checkbox" <%= inStock ? 'checked' : '' %>>
+                <button class="save">Save</button>
+                <button class="destroy">X</button>
+            </div>
+        </script>
+    </div>
+        <script src="lib/jquery.js"></script>
+        <script src="lib/underscore.js"></script>
+        <script src="lib/backbone.js"></script>
+        <script src="lib/backbone-local-storage.js"></script>
+        <script src="js/models/car.js"></script>
+        <script src="js/collections/cars.js"></script>
+        <script src="js/views/car-view.js"></script>
+        <script src="js/views/app-view.js"></script>
+        <script src="js/app.js"></script>
+    </body>
+</html>
